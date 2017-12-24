@@ -19,7 +19,6 @@ def load(image_path):
 
     return out
 
-
 def change_value(image):
     """ Change the value of every pixel by following x_n = 0.5*x_p^2
         where x_n is the new value and x_p is the original value
@@ -36,11 +35,10 @@ def change_value(image):
     # YOUR CODE HERE
     x = np.array(image)
     out = x * x * 0.5
-    out = Image.fromarray(np.uint8(out))
+    #out = Image.fromarray(np.uint8(out))
     # END YOUR CODE
 
     return out
-
 
 def convert_to_grey_scale(image):
     """ Change image to gray scale
@@ -68,7 +66,6 @@ def convert_to_grey_scale(image):
 
     return out
 
-
 def rgb_decomposition(image, channel):
     """ Return image **excluding** the rgb channel specified
 
@@ -94,7 +91,6 @@ def rgb_decomposition(image, channel):
 
     return out
 
-
 def lab_decomposition(image, channel):
     """ Return image decomposed to just the lab channel specified
 
@@ -115,12 +111,10 @@ def lab_decomposition(image, channel):
         for j in range(np.shape(lab)[1]):
             out[i, j, dic[channel]] = lab[i, j, dic[channel]]
 
-    print(out)
     out = Image.fromarray(np.uint8(out))
     # END YOUR CODE
 
     return out
-
 
 def hsv_decomposition(image, channel='H'):
     """ Return image decomposed to just the hsv channel specified
@@ -148,7 +142,6 @@ def hsv_decomposition(image, channel='H'):
 
     return out
 
-
 def mix_images(image1, image2, channel1, channel2):
     """ Return image which is the left of image1 and right of image 2 excluding
     the specified channels for each image
@@ -165,7 +158,7 @@ def mix_images(image1, image2, channel1, channel2):
 
     out = None
     # YOUR CODE HERE
-    dic = {'red': 0, 'green': 1, 'blue': 2}
+    dic = {'R': 0, 'G': 1, 'B': 2}
     img1 = np.array(image1)
     img2 = np.array(image2)
     out = np.zeros(np.shape(img1))
